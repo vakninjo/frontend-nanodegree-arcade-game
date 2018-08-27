@@ -1,5 +1,5 @@
 # Classic Arcade Game
-===============================
+
 ## Table of Contents
 * [Objective](#Objective)
 * [How to play](#Howtoplay)

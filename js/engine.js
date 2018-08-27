@@ -25,10 +25,15 @@ var Engine = (function(global) {
         lastTime,
         frameId;
 
+    const modal = document.querySelector('.modal_background');
+    const replay = document.querySelector('.modal_button');
     canvas.width = 505;
     canvas.height = 606;
     doc.body.appendChild(canvas);
 
+    replay.addEventListener('click',() => {
+        reset();
+    });
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
      */
@@ -58,7 +63,7 @@ var Engine = (function(global) {
          */
         if (player.gameEnd === true){
               win.cancelAnimationFrame(frameId);
-              toggleModal();
+              setTimeout(function(){modal.classList.remove('hide');},30);
         } else {
               frameId = win.requestAnimationFrame(main);
         }
@@ -168,8 +173,10 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
+        modal.classList.add('hide');
         player.reset();
-
+        player.gameEnd = false;
+        main();
     }
 
     /* Go ahead and load all of the images we know we're going to need to

@@ -155,12 +155,6 @@ allEnemies.push(bug1,bug2);
   //init allEnemies array
   //For each enemy create and push new Enemy objet into above array
   //
-function toggleModal() {
-  const modal = document.querySelector('.modal_background');
-  modal.classList.toggle('hide');
-}
-
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -174,9 +168,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-document.querySelector('.modal_replay').addEventListener('click',() => {
-  toggleModal();
-  reset();
-  
-})

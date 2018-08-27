@@ -20,6 +20,7 @@ Good luck and have fun!
 ## Resources used
 
  * [Udacity start code, a static version of the arcade game project](https://github.com/udacity/frontend-nanodegree-arcade-game)
+ * [Base code review assistance](https://matthewcranford.com/arcade-game-walkthrough-part-1-starter-code-breakdown/)
  * [Google Fonts](https://fonts.google.com/)
 
 ## Feature additions

@@ -60,7 +60,7 @@ class Hero {
     for (let enemy of allEnemies){
       //collision?
       if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2 )){
-        console.log('blah!!!!!!')
+        // console.log('blah!!!!!!')
         this.reset();
       }
     }
@@ -116,13 +116,13 @@ class Hero {
 const player = new Hero();
 const bug1 = new Enemy(-101, 0, 220);
 const bug2 = new Enemy(-101, 83, 330);
-// const bug3 = new Enemy((-101*2), 83, 240);
-// const bug4 = new Enemy(-101, (83*2), 370);
+const bug3 = new Enemy((-101*2), 83, 240);
+const bug4 = new Enemy(-101, (83*2), 370);
 // const bug5 = new Enemy((-101*1.5), (83*2), 170);
 // const bug6 = new Enemy((-101*3), 0, 320);
 const allEnemies = [];
 // allEnemies.push(bug1,bug2,bug3,bug4,bug5,bug6);
-allEnemies.push(bug1,bug2);
+allEnemies.push(bug1,bug2,bug3,bug4);
 
 
 

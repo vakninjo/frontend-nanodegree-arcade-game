@@ -1,6 +1,32 @@
-frontend-nanodegree-arcade-game
+# Classic Arcade Game
 ===============================
+## Table of Contents
+* [Objective](#Objective)
+* [How to play](#Howtoplay)
+* [Resources used](#Resourcesused)
+* [Feature additions](#Featureadditions)
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Objective
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+Goal of the game is to cross the paved road while not getting hit by the enemies.
+
+## How to play
+
+Our Hero will start at the bottom of the board. To move our hero you may use the following arrow keys: up, down, left and right.
+Once you reach the other side you will be prompted to restart the game.
+
+Good luck and have fun!
+
+## Resources used
+
+ * [Udacity start code, a static version of the arcade game project](https://github.com/udacity/frontend-nanodegree-arcade-game)
+ * [Google Fonts](https://fonts.google.com/)
+
+## Feature additions
+
+* Refactor to include randomized enemies
+* Choose different Hero
+* Add timer and score to game
+* Add pause button
+* Add sound for game win
+* Add game levels

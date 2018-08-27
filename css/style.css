@@ -1,3 +1,57 @@
 body {
     text-align: center;
 }
+
+.modal_background {
+  position: absolute;;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(0,0,0,0.5);
+}
+
+.modal_body {
+  position: relative;
+  width: 300px;
+  top: 50%;
+  left: 50%;
+  background: #ffffff;
+  transform: translate(-50%, -95%);
+}
+
+.modal_head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid black;
+}
+
+.modal_close {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.modal_message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid black;
+}
+
+.modal_buttons {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+}
+
+.modal_button{
+  width: 60px;
+  height: 30px;
+}
+
+.hide {
+  display: none;
+}

@@ -1,9 +1,15 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
     //x position
+    this.x = x;
+    this.y = y + 60;
+    this.speed = speed;
+    this.step = 101;
+    this.boundary = this.step * 5;
+    this.resPos = -this.step;
     //y position
 
     // The image/sprite for our enemies, this uses
@@ -18,11 +24,15 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
 
-    //if enemy is no passed boundary
+    if (this.x < this.boundary){
       //move forward
-      // increment x by speed * dt
-    //else
-      //reset pos to start
+      //increment x by speed * dt
+      this.x += this.speed * dt;
+    } else {
+      //reset position
+      this.x = this.resPos;
+    }
+
 };
 
 // Draw the enemy on the screen, required method for game
@@ -33,7 +43,6 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-
 
 //hero class
   //constructor
@@ -64,13 +73,36 @@ class Hero {
     this.step = 101;
     this.jump = 83;
     this.startX = this.step * 2;
-    this.startY = (this.jump * 5) - 25;
+    this.startY = (this.jump * 4) + 60;
     this.x = this.startX;
     this.y = this.startY;
+    this.gameEnd = false;
   }
   //draw hero
   render() {
     ctx.drawImage(Resources.get(this.sprite),this.x, this.y);
+  }
+
+  update(){
+    //check for collision
+    for (let enemy of allEnemies){
+      //collision?
+      if (this.y === enemy.y && (enemy.x + enemy.step/2 > this.x && enemy.x < this.x + this.step/2 )){
+        console.log('blah!!!!!!')
+        this.reset();
+      }
+    }
+    //check fo game end?
+    if (this.y === 60) {
+      this.gameEnd = true;
+
+    }
+  }
+
+  reset(){
+    this.x = this.startX;
+    this.y = this.startY;
+    this.gameEnd = false;
   }
 
   /**
@@ -104,6 +136,15 @@ class Hero {
 }
 
 const player = new Hero();
+const bug1 = new Enemy(-101, 0, 220);
+const bug2 = new Enemy(-101, 83, 330);
+// const bug3 = new Enemy((-101*2), 83, 240);
+// const bug4 = new Enemy(-101, (83*2), 370);
+// const bug5 = new Enemy((-101*1.5), (83*2), 170);
+// const bug6 = new Enemy((-101*3), 0, 320);
+const allEnemies = [];
+// allEnemies.push(bug1,bug2,bug3,bug4,bug5,bug6);
+allEnemies.push(bug1,bug2);
 
 
 
@@ -114,6 +155,10 @@ const player = new Hero();
   //init allEnemies array
   //For each enemy create and push new Enemy objet into above array
   //
+function toggleModal() {
+  const modal = document.querySelector('.modal_background');
+  modal.classList.toggle('hide');
+}
 
 
 
@@ -129,3 +174,9 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+document.querySelector('.modal_replay').addEventListener('click',() => {
+  toggleModal();
+  reset();
+  
+})
